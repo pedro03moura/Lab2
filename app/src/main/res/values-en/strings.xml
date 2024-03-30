@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lab 2</string>
+    <string name="note">Note</string>
+    <string name="date">Date</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="back">Back</string>
+    <string name="saved">Note saved successfully!</string>
+    <string name="updated">Note updated successfully!</string>
+    <string name="selectDate">Please select a date!</string>
+    <string name="minNote">The note must be at least 5 characters long!</string>
+    <string name="noSave">You cannot save an empty note!</string>
+    <string name="noUpdate">You cannot update an empty note!</string>
+    <string name="deleted">" Note deleted successfully!"</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="sureDelete">Are you sure you want to delete the Note?</string>
+</resources>

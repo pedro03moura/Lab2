@@ -36,6 +36,6 @@
             app:destination="@id/listFragment" />
         <argument
             android:name="currentNote"
-            app:argType="com.example.notes_cm.data.entities.Note" />
+            app:argType="com.example.lab2.data.entities.Note" />
     </fragment>
 </navigation>

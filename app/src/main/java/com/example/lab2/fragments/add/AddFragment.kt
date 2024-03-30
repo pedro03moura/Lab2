@@ -1,13 +1,14 @@
 package com.example.lab2.fragments.add
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.lab2.R
@@ -40,16 +41,27 @@ class AddFragment : Fragment() {
 
     private fun addNote() {
         val noteText = view?.findViewById<EditText>(R.id.addNote)?.text.toString()
+        val datePicker = view?.findViewById<DatePicker>(R.id.addDate)
 
         if(noteText.isEmpty()) {
-            Toast.makeText(view?.context, "Não pode uma nota vazia!", Toast.LENGTH_LONG).show()
+            Toast.makeText(view?.context,  getString(R.string.noSave), Toast.LENGTH_LONG).show()
+        } else if (noteText.length != 0 && noteText.length < 5){
+            Toast.makeText(view?.context, getString(R.string.minNote), Toast.LENGTH_LONG).show()
+        } else if (datePicker == null){
+            Toast.makeText(view?.context, getString(R.string.selectDate), Toast.LENGTH_LONG).show()
         }
         else {
-            val note = Note(0, noteText)
+            val day = datePicker.dayOfMonth
+            val month = datePicker.month
+            val year = datePicker.year
+
+            val selectedDate = "$day/${month + 1}/$year"
+
+            val note = Note(0, noteText, selectedDate)
 
             mNoteViewModel.addNote(note)
 
-            Toast.makeText(requireContext(), "Gravado com sucesso!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(),  getString(R.string.saved), Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         }
     }
